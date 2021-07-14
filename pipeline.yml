@@ -1,0 +1,26 @@
+trigger:
+  - master
+
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: BuildJob
+    displayName: 'Build Job 1'
+    pool:
+      vmImage: 'ubuntu-latest'
+    continueOnError: true
+    steps:
+    - script: echo This is the Build stage!
+
+
+- stage: Deploy
+  displayName: 'Deploy Stage'
+  jobs:
+  - job: DeployJob
+    displayName: 'Deploy Job 1'
+    pool:
+      vmImage: 'ubuntu-latest'
+    continueOnError: true
+    steps:
+    - script: echo This is the Deploy stage!
